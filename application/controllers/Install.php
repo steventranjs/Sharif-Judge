@@ -135,6 +135,7 @@ class Install extends CI_Controller
 				'is_upload_only'    => array('type' => 'TINYINT', 'constraint' => 1, 'default' => '0'),
 				'c_time_limit'      => array('type' => 'INT', 'constraint' => 11, 'unsigned' => TRUE, 'default' => 500),
 				'python_time_limit' => array('type' => 'INT', 'constraint' => 11, 'unsigned' => TRUE, 'default' => 1500),
+			    'php_time_limit'    => array('type' => 'INT', 'constraint' => 11, 'unsigned' => TRUE, 'default' => 500),
 				'java_time_limit'   => array('type' => 'INT', 'constraint' => 11, 'unsigned' => TRUE, 'default' => 2000),
 				'memory_limit'      => array('type' => 'INT', 'constraint' => 11, 'unsigned' => TRUE, 'default' => 50000),
 				'allowed_languages' => array('type' => 'TEXT', 'default' => ''),

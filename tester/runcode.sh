@@ -36,7 +36,7 @@ fi
 
 
 # Imposing memory limit with ulimit
-if [ "$EXT" != "java" ]; then
+if [ "$EXT" != "java" ] && [ "$EXT" != "php" ]; then
 	ulimit -v $((MEMLIMIT+10000))
 	ulimit -m $((MEMLIMIT+10000))
 	ulimit -s $((MEMLIMIT+10000))

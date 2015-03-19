@@ -305,9 +305,10 @@ class Assignments extends CI_Controller
 						'score' => 100,
 						'c_time_limit' => 500,
 						'python_time_limit' => 1500,
+					    'php_time_limit' => 500,
 						'java_time_limit' => 2000,
 						'memory_limit' => 50000,
-						'allowed_languages' => 'C,C++,Python 2,Python 3,Java',
+						'allowed_languages' => 'C,C++,Python 2,Python 3,Java,Php',
 						'diff_cmd' => 'diff',
 						'diff_arg' => '-bB',
 						'is_upload_only' => 0
@@ -319,6 +320,7 @@ class Assignments extends CI_Controller
 				$scores = $this->input->post('score');
 				$c_tl = $this->input->post('c_time_limit');
 				$py_tl = $this->input->post('python_time_limit');
+				$php_tl = $this->input->post('php_time_limit');
 				$java_tl = $this->input->post('java_time_limit');
 				$ml = $this->input->post('memory_limit');
 				$ft = $this->input->post('languages');
@@ -335,6 +337,7 @@ class Assignments extends CI_Controller
 						'score' => $scores[$i],
 						'c_time_limit' => $c_tl[$i],
 						'python_time_limit' => $py_tl[$i],
+						'php_time_limit' => $php_tl[$i],
 						'java_time_limit' => $java_tl[$i],
 						'memory_limit' => $ml[$i],
 						'allowed_languages' => $ft[$i],
@@ -374,6 +377,7 @@ class Assignments extends CI_Controller
 		$this->form_validation->set_rules('score[]', 'problem score', 'required|integer');
 		$this->form_validation->set_rules('c_time_limit[]', 'C/C++ time limit', 'required|integer');
 		$this->form_validation->set_rules('python_time_limit[]', 'python time limit', 'required|integer');
+		$this->form_validation->set_rules('php_time_limit[]', 'php time limit', 'required|integer');
 		$this->form_validation->set_rules('java_time_limit[]', 'java time limit', 'required|integer');
 		$this->form_validation->set_rules('memory_limit[]', 'memory limit', 'required|integer');
 		$this->form_validation->set_rules('languages[]', 'languages', 'required');

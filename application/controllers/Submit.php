@@ -55,6 +55,7 @@ class Submit extends CI_Controller
 			case 'c++': return 'cpp';
 			case 'python 2': return 'py2';
 			case 'python 3': return 'py3';
+			case 'php': return 'php';
 			case 'java': return 'java';
 			case 'zip': return 'zip';
 			case 'pdf': return 'pdf';
@@ -73,6 +74,7 @@ class Submit extends CI_Controller
 			case 'cpp': return ($extension==='cpp'?TRUE:FALSE);
 			case 'py2': return ($extension==='py'?TRUE:FALSE);
 			case 'py3': return ($extension==='py'?TRUE:FALSE);
+			case 'php': return ($extension==='php'?TRUE:FALSE);
 			case 'java': return ($extension==='java'?TRUE:FALSE);
 			case 'zip': return ($extension==='zip'?TRUE:FALSE);
 			case 'pdf': return ($extension==='pdf'?TRUE:FALSE);
@@ -87,7 +89,7 @@ class Submit extends CI_Controller
 	{
 		if ($str=='0')
 			return FALSE;
-		if (in_array( strtolower($str),array('c', 'c++', 'python 2', 'python 3', 'java', 'zip', 'pdf')))
+		if (in_array( strtolower($str),array('c', 'c++', 'python 2', 'python 3', 'php','java', 'zip', 'pdf')))
 			return TRUE;
 		return FALSE;
 	}

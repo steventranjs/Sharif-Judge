@@ -470,6 +470,15 @@ for((i=1;i<=TST;i++)); do
 			./runcode.sh $EXT $MEMLIMIT $TIMELIMIT $TIMELIMITINT $PROBLEMPATH/in/input$i.txt "python3 -O $FILENAME.py"
 		fi
 		EXITCODE=$?
+		
+	elif [ "$EXT" = "php" ]; then
+		cp $PROBLEMPATH/$UN/$FILENAME.php $FILENAME.php
+		if $PERL_EXISTS; then
+			./runcode.sh $EXT $MEMLIMIT $TIMELIMIT $TIMELIMITINT $PROBLEMPATH/in/input$i.txt "./timeout --just-kill -nosandbox -l $OUTLIMIT -t $TIMELIMIT -m $MEMLIMIT php $FILENAME.php"
+		else
+			./runcode.sh $EXT $MEMLIMIT $TIMELIMIT $TIMELIMITINT $PROBLEMPATH/in/input$i.txt "php $FILENAME.php"
+		fi
+		EXITCODE=$?
 
 	else
 		shj_log "File Format Not Supported"
