@@ -222,6 +222,32 @@ fi
 
 
 ########################################################################################################
+############################################ COMPILING PHP ############################################
+########################################################################################################
+
+if [ "$EXT" = "php" ]; then
+	cp $PROBLEMPATH/$UN/$FILENAME.php $FILENAME.php
+	shj_log "Checking PHP Syntax"
+	php -l $FILENAME.php >/dev/null 2>cerr
+	EXITCODE=$?
+	COMPILE_END_TIME=$(($(date +%s%N)/1000000));
+	shj_log "Compiled. Exit Code=$EXITCODE  Execution Time: $((COMPILE_END_TIME-COMPILE_BEGIN_TIME)) ms"
+	if [ $EXITCODE -ne 0 ]; then
+		shj_log "Syntax Error"
+		shj_log "$(cat cerr|head -10)"
+		echo '<span class="shj_b">Compile Error</span>' >$PROBLEMPATH/$UN/result.html
+		echo '<span class="shj_r">' >> $PROBLEMPATH/$UN/result.html
+		(cat cerr | head -10 | sed 's/&/\&amp;/g' | sed 's/</\&lt;/g' | sed 's/>/\&gt;/g' | sed 's/"/\&quot;/g') >> $PROBLEMPATH/$UN/result.html
+		echo "</span>" >> $PROBLEMPATH/$UN/result.html
+		cd ..
+		rm -r $JAIL >/dev/null 2>/dev/null
+		shj_finish "Syntax Error"
+	fi
+fi
+
+
+
+########################################################################################################
 ########################################## COMPILING PYTHON 2 ##########################################
 ########################################################################################################
 
@@ -472,7 +498,6 @@ for((i=1;i<=TST;i++)); do
 		EXITCODE=$?
 		
 	elif [ "$EXT" = "php" ]; then
-		cp $PROBLEMPATH/$UN/$FILENAME.php $FILENAME.php
 		if $PERL_EXISTS; then
 			./runcode.sh $EXT $MEMLIMIT $TIMELIMIT $TIMELIMITINT $PROBLEMPATH/in/input$i.txt "./timeout --just-kill -nosandbox -l $OUTLIMIT -t $TIMELIMIT -m $MEMLIMIT php $FILENAME.php"
 		else
