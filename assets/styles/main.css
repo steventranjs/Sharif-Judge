@@ -94,7 +94,7 @@ input, select {
 }
 
 a {
-	color: #2d2d2d;
+	color: #1C3F94;
 }
 
 span.anchor {
@@ -154,19 +154,15 @@ div#top_bar {
 	z-index: 5;
 	width: 100%;
 	height: 55px;
-	color: #f0f0f0;
+	color: #1C3F94;
 	position: fixed;
 	font-size: 12px;
 	border-bottom:5px solid #000;
-	background-color: #373737;
+	background-color: #FFF200;
 }
 
 div#top_bar a {
 	text-decoration: none;
-}
-
-div#top_bar>div>a {
-	color: white;
 }
 
 div#shj_logo {
@@ -185,19 +181,19 @@ div#shj_logo a {
 
 div#shj_logo img {
 	float:left;
-	width: 32px;
+	width: 150px;
 	height: 32px;
 	margin:0 10px;
 }
 
 div#shj_logo h1.shjlogo-text {
-	color:#FFF;
+	color:#1C3F94;
 	display:inline-block;
 	margin:0;
 }
 
 div#shj_logo h1.shjlogo-text span {
-	color:#FFF;
+	color:#1C3F94;
 	display:inline-block;
 	margin:0;
 	font-weight:normal;
@@ -212,6 +208,10 @@ div.top_object {
 	line-height: 50px;
 }
 
+div.top_object.shj_menu.top_left{
+	font-size: 15px;
+}
+
 div.top_object.top_left, div.top_left {
 	float: left;
 }
@@ -221,13 +221,14 @@ div.top_object.shj_menu {
 }
 
 div.top_object.shj_white, div.top_object.shj_white>a {
-	background-color: #272727;
-
+	background-color:#1C3F94;
+	color:#fff;
 }
 
 div.countdown {
 	padding: 0 8px;
-	background-color:#27ae60;
+	background-color:#1C3F94;
+	color:#fff;
 }
 
 div.time_block {
@@ -255,7 +256,7 @@ span.time_label {
 	display: none;
 	font-size: 12px;
 	position: absolute;
-	background-color: #373737;
+	background-color:#1C3F94;
 	-webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
 	box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
 }
@@ -271,6 +272,10 @@ span.time_label {
 	line-height: 40px;
 	padding:0 10px;
 	display: block;
+}
+
+.top_menu a:hover {
+	color: #1C3F94;
 }
 
 div.top_object.top_left .top_menu{
@@ -298,7 +303,8 @@ div.top_object.top_left .top_menu{
 }
 
 .top_menu > li:hover {
-	background-color: #464646;
+	background-color: #fff;
+	color: #1c3f94;
 }
 
 div#extra_time {

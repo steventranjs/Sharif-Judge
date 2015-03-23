@@ -355,6 +355,9 @@ $(document).ready(function () {
 	$(".select_assignment").click(
 		function () {
 			var id = $(this).children('i').addBack('i').data('id');
+			if(id === null) {
+				id = $(this).children('a').addBack('a').data('id');
+			}
 			$.ajax({
 				type: 'POST',
 				url: shj.site_url + 'assignments/select',
@@ -375,6 +378,7 @@ $(document).ready(function () {
 						shj.finish_time = moment(response.finish_time);
 						shj.extra_time  = moment.duration(parseInt(response.extra_time, 10), 'seconds');
 						shj.update_clock();
+						window.location = shj.site_url + 'problems/' + id;
 					}
 					else
 						shj.loading_failed(response.message);

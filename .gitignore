@@ -2,6 +2,8 @@
 
 .git
 .idea
+.project
+.pydevproject
 
 # Ignore Twig Cache Files
 application/cache/Twig/*/
@@ -15,3 +17,8 @@ tester/easysandbox/t/*
 
 # Ignore MOSS File
 tester/moss
+tester/err
+tester/out
+
+#ignore assignment folder
+assignments/*
