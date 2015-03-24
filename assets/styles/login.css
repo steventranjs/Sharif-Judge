@@ -9,7 +9,7 @@
 body {
 	background-color: #fcfcfc;
 	color: #2d2d2d;
-	font-size: 12px;
+	font-size: 20px;
 	font-family: sans-serif;
 }
 
@@ -27,7 +27,7 @@ a {
 div.box {
 	top: 50%;
 	left: 50%;
-	width: 280px;
+	width: 350px;
 	position: absolute;
 	margin-left: -140px;
 }
@@ -50,7 +50,7 @@ div.judge_logo {
 
 div.judge_logo img {
 	border: none;
-	width: 280px;
+	width: 350px;
 }
 
 div.login_form {
@@ -173,4 +173,8 @@ div#install_form {
 div#install_success {
 	width: 600px;
 	margin: 100px auto;
+}
+
+.btn-signup {
+	color: #1c3f94;
 }
