@@ -50,9 +50,9 @@ img {
 }
 
 body {
-	background-color: #F6F6F4;
+	background-color: #FFF;
 	padding: 0;
-	color: #2d2d2d;
+	color: #39424e;
 	margin: 0 0 20px 0;
 	font-size: 12px;
 	font-family: 'Open Sans', 'Droid-Naskh', Sans-serif;
@@ -435,14 +435,14 @@ div#extra_time i {
 .color-scoreboard.selected i {background-color: #991B4A!important;border-color: #991B4A!important;}
 
 div#side_bar {
-	color:#595959;
+	color:#39424e;
 	position: fixed;
 	left: 0;
 	top: 55px;
 	width: 160px;
 	bottom: 0;
 	z-index: 1;
-	background-color:#F2F2EA;
+	background-color:#FFF;
 	box-shadow: #a9a9a9 0 0 4px;
 	-moz-box-shadow: #a9a9a9 0 0 4px;
 	-webkit-box-shadow: #a9a9a9 0 0 4px;
@@ -530,11 +530,11 @@ div#shj_collapse span {
 
 div#main_container {
 	z-index: 0;
-	color: #595959;
+	color: #39424e;
 	position: absolute;
 	top: 55px;
 	left: 160px;
-	background-color: #f6f6f4;
+	background-color: #FFF;
 }
 
 div#page_title {
