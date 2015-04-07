@@ -208,7 +208,7 @@ class User_model extends CI_Model
 			// You can use gmail's smtp server
 			$config = Array(
 				'protocol' => 'smtp',
-				'smtp_host' => 'smtp-sg1.jobstreet.com',
+				'smtp_host' => 'smtp-relay.jobstreet.com',
 				'smtp_port' => 25,
 				'smtp_user' => null,
 				'smtp_pass' => null,
@@ -459,7 +459,7 @@ class User_model extends CI_Model
 		// You can use gmail's smtp server
 		$config = Array(
 			'protocol' => 'smtp',
-			'smtp_host' => 'smtp-sg1.jobstreet.com',
+			'smtp_host' => 'smtp-relay.jobstreet.com',
 			'smtp_port' => 25,
 			'smtp_user' => null,
 			'smtp_pass' => null,
