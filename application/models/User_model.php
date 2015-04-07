@@ -210,8 +210,8 @@ class User_model extends CI_Model
 				'protocol' => 'smtp',
 				'smtp_host' => 'smtp-relay.jobstreet.com',
 				'smtp_port' => 25,
-				'smtp_user' => null,
-				'smtp_pass' => null,
+				//'smtp_user' => null,
+				//'smtp_pass' => null,
 				'mailtype'  => 'html',
 				'charset'   => 'iso-8859-1'
 			);
@@ -461,8 +461,8 @@ class User_model extends CI_Model
 			'protocol' => 'smtp',
 			'smtp_host' => 'smtp-relay.jobstreet.com',
 			'smtp_port' => 25,
-			'smtp_user' => null,
-			'smtp_pass' => null,
+			//'smtp_user' => null,
+			//'smtp_pass' => null,
 			'mailtype'  => 'html',
 			'charset'   => 'iso-8859-1'
 		);
