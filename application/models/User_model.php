@@ -212,7 +212,7 @@ class User_model extends CI_Model
 				'smtp_port' => 25,
 				//'smtp_user' => null,
 				//'smtp_pass' => null,
-				'mailtype'  => 'html',
+				'mailtype'  => 'text/html',
 				'charset'   => 'utf-8'
 			);
 			
@@ -463,7 +463,7 @@ class User_model extends CI_Model
 			'smtp_port' => 25,
 			//'smtp_user' => null,
 			//'smtp_pass' => null,
-			'mailtype'  => 'html',
+			'mailtype'  => 'text/html',
 			'charset'   => 'utf-8'
 		);
 		
