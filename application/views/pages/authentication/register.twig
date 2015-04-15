@@ -3,8 +3,30 @@
  # file: register.twig
  # author: Mohammad Javad Naderi <mjnaderi@gmail.com>
  #}
-{% set title = 'Register' %}
-{% include 'templates/simple_header.twig' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register - JobStreet</title>
+	<meta content="text/html" charset="UTF-8">
+	<link rel="icon" href="{{ base_url("assets/images/favicon.ico") }}"/>
+	<link rel="stylesheet" type='text/css' href="{{ base_url("assets/styles/login.css") }}"/>
+	<script type="text/javascript" src="{{ base_url('assets/js/jquery-1.10.2.min.js') }}"></script>
+	
+	<link rel='stylesheet' type='text/css' href='{{ base_url("assets/reveal/reveal.css") }}'/>
+	<script type='text/javascript' src="{{ base_url("assets/reveal/jquery.reveal.js") }}"></script>
+	{% if jobstreet_email_not_exist %}
+		<script type='text/javascript'>
+		$(document).ready(function(){
+			$('#shj_modal').reveal(
+				{
+					animationspeed: 300,
+				}
+			);
+		});
+		</script>
+	{% endif %}
+</head>
+<body id="body">
 
 {{ form_open('login/register') }}
 <div class="box register">
@@ -53,5 +75,11 @@
 
 </div>
 </form>
+<div id="shj_modal" class="reveal-modal xlarge">
+	<div class="modal_inside">
+		<div style="text-align: center;">The email address entered is not belong to a valid JobStreet account</div>
+	</div>
+	<a class="close-reveal-modal">&#215;</a>
+</div>
 </body>
 </html>

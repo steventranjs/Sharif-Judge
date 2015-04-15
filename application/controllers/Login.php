@@ -89,6 +89,22 @@ class Login extends CI_Controller
 			'registration_code_required' => $this->settings_model->get_setting('registration_code')=='0'?FALSE:TRUE
 		);
 		if ($this->form_validation->run()){
+		    
+    		$curl_options = array(
+    		    CURLOPT_URL => 'http://myjobstreet.jobstreet.com.my/registration/login-exist.php?li=' . $this->input->post('email'),
+    		    CURLOPT_HEADER => 0,
+    		    CURLOPT_RETURNTRANSFER => TRUE,
+    		    CURLOPT_TIMEOUT => 10
+    		);
+    		$ch = curl_init();
+    		curl_setopt_array($ch, $curl_options);
+    		$result = curl_exec($ch);
+		    
+		    if(strpos($result, '0|unavailable') === false) {
+		        $this->twig->display('pages/authentication/register.twig', array('jobstreet_email_not_exist' => true));
+		        return;
+		    }
+		    
 			$this->user_model->add_user(
 				$this->input->post('username'),
 				$this->input->post('email'),
