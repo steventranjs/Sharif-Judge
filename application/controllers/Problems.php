@@ -75,8 +75,13 @@ class Problems extends CI_Controller
 			OR shj_now() < strtotime($assignment['start_time'])
 			OR shj_now() > strtotime($assignment['finish_time'])+$assignment['extra_time'] // deadline = finish_time + extra_time
 			OR ! $this->assignment_model->is_participant($assignment['participants'], $this->user->username)
-		)
-			$data['can_submit'] = FALSE;
+		) {
+		    if($this->user->level < 3) {
+			    $data['can_submit'] = FALSE;
+			    $data['all_problems'] = array();
+			    $data['problem']['description'] = '<p>The problem descriptions are currently not available. Kindly wait until the Contest started !!!</p>';
+		    }
+		}
 
 		$this->twig->display('pages/problems.twig', $data);
 	}
