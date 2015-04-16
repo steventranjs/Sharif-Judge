@@ -438,8 +438,11 @@ class User_model extends CI_Model
 	public function send_password_reset_mail($email)
 	{
 		// exit if $email is invalid:
-		if ( ! $this->have_email($email) )
-			return;
+		$query = $this->db->get_where('users', array('email'=>$email));
+		if ($query->num_rows() < 1){
+		    return;
+		}
+		$username = $query->row()->username;
 
 		// generate a random password reset key:
 		$this->load->helper('string');
@@ -474,6 +477,7 @@ class User_model extends CI_Model
 		$this->email->subject('Password Reset');
 		$text = $this->settings_model->get_setting('reset_password_mail');
 		$text = str_replace('{SITE_URL}', base_url(), $text);
+		$text = str_replace('{USERNAME}', $username, $text);
 		$text = str_replace('{RESET_LINK}', site_url('login/reset/'.$passchange_key), $text);
 		$text = str_replace('{VALID_TIME}', '1 hour', $text); // links are valid for 1 hour
 		$this->email->message($text);
