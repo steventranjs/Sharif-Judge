@@ -30,6 +30,10 @@
 <body id="body">
 
 {{ form_open('login/register') }}
+<div class="alert alert-info" style="font-size:15px">
+  Kindly ensure that the email address entered is registered with JobStreet.com.
+  If you are not a JobStreet.com member, register <a target="_blank" href="https://myjobstreet.jobstreet.com.my/registration/simple-signup.php">HERE</a>
+</div>
 <div class="box register">
 
 	<div class="judge_logo">
@@ -64,7 +68,7 @@
 				<label for="form_password_2">Retype Password</label><br/>
 				<input id="form_password_2" type="password" name="password_again" required="required" pattern=".{6,200}" title="The Password Confirmation field must be at least 6 characters in length" class="sharif_input"/>
 				{{ form_error('password_again','<div class="shj_error">','</div>') }}<br/>
-				<span style="font-size:14px">[Not a JobStreet.com member ? Register <a style="color:blue" target="_blank" href="https://myjobstreet.jobstreet.com.my/registration/simple-signup.php">HERE</a>]</span><br/>
+				<span style="font-size:14px">[Not a JobStreet.com member ? Register <a target="_blank" href="https://myjobstreet.jobstreet.com.my/registration/simple-signup.php">HERE</a>]</span><br/>
 			</p>
 		</div>
 		<div class="login2">
