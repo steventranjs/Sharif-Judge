@@ -438,7 +438,7 @@ class User_model extends CI_Model
 	public function send_password_reset_mail($email)
 	{
 		// exit if $email is invalid:
-		$query = $this->db->get_where('users', array('email'=>$email));
+		$query = $this->db->select('username')->get_where('users', array('email' => $email));
 		if ($query->num_rows() < 1){
 		    return;
 		}
