@@ -51,6 +51,15 @@ class Assignments extends CI_Controller
 			ob_end_clean();
 			$item['coefficient'] = $coefficient;
 			$item['finished'] = ($delay > $extra_time);
+			
+			if ( $item['id'] == 0
+			    OR ! $item['open']
+			    OR shj_now() < strtotime($item['start_time'])
+			) {
+			    if($this->user->level < 3) {
+			        $item['total_submits'] = 0;
+			    }
+			}
 		}
 
 		$this->twig->display('pages/assignments.twig', $data);
