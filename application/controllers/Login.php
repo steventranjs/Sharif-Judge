@@ -91,7 +91,7 @@ class Login extends CI_Controller
 		if ($this->form_validation->run()){
 		    
     		$curl_options = array(
-    		    CURLOPT_URL => 'http://myjobstreet.jobstreet.com.my/registration/login-exist.php?li=' . $this->input->post('email'),
+    		    CURLOPT_URL => 'http://myjobstreet.jobstreet.com.my/registration/login-exist.php?callback=getJsonAvail&e=1&ac=2&op=json&li=' . $this->input->post('email'),
     		    CURLOPT_HEADER => 0,
     		    CURLOPT_RETURNTRANSFER => TRUE,
     		    CURLOPT_TIMEOUT => 10
