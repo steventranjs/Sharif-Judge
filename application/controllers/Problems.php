@@ -79,7 +79,13 @@ class Problems extends CI_Controller
 		    if($this->user->level < 3) {
 			    $data['can_submit'] = FALSE;
 			    $data['all_problems'] = array();
-			    $data['problem']['description'] = '<p>The problem descriptions are currently not available. Kindly wait until the Contest started !!!</p>';
+			    if(shj_now() > strtotime($assignment['finish_time'])+$assignment['extra_time']) {
+			    	$data['problem']['description'] = '<p>Contest closed, you can practice the question after result is available !!!</p>';
+			    } else if (! $this->assignment_model->is_participant($assignment['participants'], $this->user->username)) {
+			    	$data['problem']['description'] = '<p>You are not participant of this competition. However, you can practice the question after contest end !!!</p>';
+			    } else {
+			    	$data['problem']['description'] = '<p>The problem descriptions are currently not available. Kindly wait until the Contest started !!!</p>';
+			    }
 		    }
 		}
 
